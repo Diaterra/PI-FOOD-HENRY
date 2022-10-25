@@ -1,0 +1,36 @@
+.navbar {
+    height: 70px;
+    background-color: #0d9736;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    border-color:rgb(196, 147, 88);
+    border-style: solid;
+}
+
+
+.list-item {
+    margin: 50px 20px ;
+    display: flex;
+    height: 100%;
+    width: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list-item a {
+    color: white;
+    font-size: 1.2em;
+    height: 100%;
+    padding: 16px 10px;
+    border-bottom: 4px solid transparent;
+}
+
+.list-item a:hover,
+.list-item a.active {
+    background-color: #808080;
+    color: white;
+}

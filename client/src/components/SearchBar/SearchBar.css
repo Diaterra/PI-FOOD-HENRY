@@ -1,0 +1,23 @@
+.cnt {
+    padding-top: 10px;
+}
+.form-container {
+    display:flex;
+    flex-direction: row;
+    align-items: flex-start;
+    
+    }
+
+
+.label {
+    padding-right: 10px;
+    width:auto;
+    border-radius: 5px;
+    height: 27px;
+}
+
+.input_search{
+    border-radius: 5px;
+    height: 20px;
+    width: 250px;
+}

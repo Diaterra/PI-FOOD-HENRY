@@ -1,0 +1,168 @@
+.background-home{
+    
+    background-image: url('./image-home.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    overflow: hidden;
+    height: auto; 
+    position:flex;
+}
+
+
+.filter-order{
+    display:flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-content: center;
+    margin: 10px;
+    
+    
+}
+
+.title-recipe{
+    margin-bottom: 0px;
+    margin-top:0px;
+    text-align: right;
+}
+
+.title-fil-ord{
+    font-size: medium;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-left: 150px;
+    margin-right: 100px;
+    text-shadow: 5px 5px 10px black;
+    font-weight: bolder;
+    
+}
+.button{
+    width: 90px;
+    height: 35px;
+    color:white;
+    background-color: #0d9736;
+    border-color:  #0d9736;
+    box-shadow: 20px 20px 10px grey;
+    font-size: small; 
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button select:hover{
+    background-color: #808080;
+    border-color:aqua;
+}
+
+
+
+
+.cnt{
+    display:flex;
+    flex-direction: row;
+    margin: 0px;
+    padding-top: 0%;
+    justify-content: center;
+}
+
+
+.refresh{
+    color:white;
+    height: 35px;
+    width: auto;
+    background-color: #0d9736;
+    border-color:  #0d9736;
+    box-shadow: 20px 20px 10px grey;
+    font-size: medium; 
+    cursor: pointer;  
+    border-radius: 5px;
+}
+
+
+
+.refresh select:hover{
+    background-color: #808080;
+}
+.refresh select:active{
+    background-color: #808080;
+    color: white;
+}
+
+.div-refresh{
+    width: 100%;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.order{
+    margin-right: 20px;
+   
+}
+
+.recipes_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1em;
+    margin: 0px auto;
+    padding: 0 1em; 
+    max-width: 1000px; 
+    width: 100%;
+    
+}
+
+.content-select select{
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    
+}
+
+.content-select{
+	max-width: 550px;
+	position: relative;
+}
+ 
+.content-select select{
+	display: inline-block;
+	width: 100px;
+	cursor: pointer;
+  	height: 35px;
+    outline: 0; 
+  	border: 0;
+	text-align: center;
+    color: white;
+	position: relative;
+    transition: all 0.25s ease;
+    background-color: #0d9736;
+    border:  black;
+    box-shadow: 20px 20px 10px grey;
+    font-size: small; 
+    
+}
+ 
+.content-select select:hover{
+	background-color: #808080;
+}
+
+ 
+.content-select:hover i{
+	margin-top: 3px;
+}
+
+.content-select select::-ms-expand {
+    display: none;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.link:hover{
+    border-color: red;
+}
+
+
