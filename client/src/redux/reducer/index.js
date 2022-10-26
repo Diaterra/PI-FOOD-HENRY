@@ -6,7 +6,7 @@ const initialState = {
     allRecipes:[],
     diets:[],
     alldiets:[],
-    recipeDetail:{}, //creo este estado para tener de backup para que tenga siempre todas las recetas, para cuando uno filtre  
+    recipeDetail:{},  
     recipesByName:[],
     recipesxPage: 9,
     actualPage:1,
@@ -16,7 +16,7 @@ const initialState = {
 
 const rootReducer = (state = initialState, action)=>{
     switch(action.type){
-        case GET_RECIPES:             //esta accion me llena los estados iniciales con todo
+        case GET_RECIPES:         
             return {
                 ...state,
                 recipes: action.payload,
@@ -39,9 +39,7 @@ const rootReducer = (state = initialState, action)=>{
                     };
         case FILTER_CREATED:
             const recipesCreated = state.allRecipes
-            
-            
-            // recipes_choise ? 
+
 
             const createdFiltered = action.payload === 'created' ? recipesCreated.filter((elem)=>elem.createdInDb) : recipesCreated.filter((elem)=>!elem.createdInDb)
             return {
@@ -60,7 +58,7 @@ const rootReducer = (state = initialState, action)=>{
             return{
                 ...state,
                 recipes: action.payload === 'All' ? allRecipes : recipes_filter_diet,
-                
+  
             };
         case ORDER_RECIPES_NAME:
             let recipesToOrder = action.payload === 'asc' ? 
@@ -109,7 +107,6 @@ const rootReducer = (state = initialState, action)=>{
         case CREATE_RECIPE:{
             return {
                 ...state,
-
             }
         } 
         
@@ -129,7 +126,7 @@ const rootReducer = (state = initialState, action)=>{
                 ...state,
                 recipeDetail:{}
             }}
-
+       
         default: 
             return {...state};    
     }

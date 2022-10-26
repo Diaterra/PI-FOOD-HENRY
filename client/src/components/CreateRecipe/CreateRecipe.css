@@ -53,8 +53,8 @@
 }
 
 .form_error{
+    color:red;
     border-radius:10px;
-    height: 30px;
     width: 400px;
-    border-color:red;
+    font-weight: 500;
 }

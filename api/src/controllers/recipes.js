@@ -4,9 +4,7 @@ const {API_KEY, API_KEY2} = process.env;
 const recipes_api = require('../utils/recipes_api');
 const axios = require ('axios');
 
-//`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
-//const recipes_api = require('../utils/recipes_api.js');
-//80bfe41041ad4e7f8a7118f5def5a770
+
 const getRecipesApi = async function (){
     try {
         //const resultsUrl = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY2}&addRecipeInformation=true&number=100`);
@@ -19,23 +17,18 @@ const getRecipesApi = async function (){
              image: element.image,
              dish_summary: element.summary.replace( /(<([^>]+)>)/ig, ''),
              health_score: element.healthScore,
-             instructions: element.analyzedInstructions[0]?.steps.map((element)=> element.step 
-            // return {
-             //       number_steps: element.number,
-             //       step: element.step
-               
-            ),
+             instructions: element.analyzedInstructions[0]?.steps.map((element)=> element.step),
              diets: element.diets.map((element) => ({name:element})),
              dishTypes: element.dishTypes.map((element) => element),
-        }});
-           return totalrecipes;  
+                }});
+             return totalrecipes;  
         
     } catch (error) {
-        console.log(error)
-        
-    }
-   
-    };
+        console.log(error) 
+    }};
+
+
+
 const getRecipesDb = async () => {
     try {
         const recipedb = await Recipe.findAll({
@@ -50,11 +43,14 @@ const getRecipesDb = async () => {
         return recipedb;
     } catch (error) {   
     } }
+
 const getAllRecipes = async () => {
-    const api_recipes = await getRecipesApi();
-    const db_recipes = await getRecipesDb();
-    const allrecipes = api_recipes.concat(db_recipes);
+const api_recipes = await getRecipesApi();
+const db_recipes = await getRecipesDb();
+const allrecipes = api_recipes.concat(db_recipes);
     return allrecipes}
+
+
 
 const newRecipes = async (name, dish_summary, health_score, instructions, diets, createdInDb) =>{
     try {
@@ -73,17 +69,16 @@ const newRecipes = async (name, dish_summary, health_score, instructions, diets,
             await newRecipe.addDiet(dietsDb);
         }
           return newRecipe;
+
     } catch (error) {
         console.log(error)
     }
-     
-     //tengo que encontrarla en un modelo que tengo y teiene que coincidir lo que le estoy pasando por parametro, etonces le digo que agrege las dietas que coincidieron con el name
  };
  
 
  const getRecipeById = async function(id){
-    
   try {
+   
     if  (id.toString().length < 8){
         
     const recipes_id = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY2}`);
@@ -120,17 +115,11 @@ const newRecipes = async (name, dish_summary, health_score, instructions, diets,
 } 
 
 
-            
-     //filter((element)=>element.name.toLowerCase().includes(name.toLowerCase()))    
-
-
-
 module.exports = {getRecipesApi,
      getRecipesDb, 
      getAllRecipes, 
      newRecipes,
      getRecipeById,
-     
      };
 
 

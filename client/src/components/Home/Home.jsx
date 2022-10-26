@@ -159,7 +159,7 @@ function handleSortHealth(event){
         <select defaultValue='Diets'onChange={event=>handleFilterDiets(event)}>
            <option disabled='Diets'>Diets</option>
            
-           {diets?.map((element)=> <option key={element.id} value={element.name}>{element.name}</option>)}
+           {diets?.map((element)=> <option key={element} value={element}>{element}</option>)}
          </select>  
           
          </div>  

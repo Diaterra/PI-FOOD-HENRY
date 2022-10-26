@@ -12,6 +12,7 @@ export const ORDER_RECIPES_NAME = 'ORDER_RECIPES_NAME';
 export const ORDER_RECIPES_HEALTH_SC = 'ORDER_RECIPES_HEALTH_SC';
 export const CLEAN_DETAIL = 'CLEAN_DETAIL';
 export const CHANGE_PAGE = 'CHANGE_PAGE';
+export const REFRESH = 'REFRESH';
 
 
 export const getRecipes = () => {
@@ -80,7 +81,7 @@ export const postRecipe = (payload)=> {
 
     
 export const filterCreated = (payload) =>{ 
-    console.log(payload)//el payload es el value del imput
+    
     return {
         type : FILTER_CREATED,
         payload,
@@ -113,6 +114,7 @@ export const changePage = (payload)=>{
         payload,
     }
 }
+
 
 export const cleanDetail = ()=>{
     return{

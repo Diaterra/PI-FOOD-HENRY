@@ -1,9 +1,11 @@
 const {Router}= require ('express');
 const {getAllRecipes, newRecipes, getRecipeById}= require('../controllers/recipes');
-const {Diet} = require('../db.js');
-const {Recipe} = require('../db.js');
+
+
 
 const router = Router();
+
+
 router.get('/', async (req, res,next)=>{
     const name = req.query.name;
     try {
@@ -19,8 +21,7 @@ router.get('/', async (req, res,next)=>{
        } }
     catch (error) {
         next(error)
-       // res.status(400).send({error: 'error en catch'})
-    }
+      }
     }   
 )
 
@@ -41,47 +42,18 @@ router.post('/', async (req, res)=>{
 
  router.get('/:id', async (req,res,next)=>{
             let id = req.params.id
-            console.log(id)
-           try {
-                 
-              //  if(id.includes('-')) {
-                   if(id) {
+           
+           try {          
+                if(id) {
                 let recipe_id_api = await getRecipeById(id)
                 console.log(recipe_id_api)
                 recipe_id_api ?
                 res.status(200).send(recipe_id_api):
                 res.status(400).send('Id not found') 
             } 
-            //let recipes_id_db = await getRecipeByIdDb(id)
-           //     recipes_id_db ?
-           //     res.status(200).send(recipes_id_db) :
-           //     res.status(400).send('Id not found')
-                                          }
-        catch (error) {next(error)
+         } catch (error) {next(error)
         }}
       ) 
 
-
-/* 
-router.get('/:id', async (req,res)=>{
-    let {id} = req.params;
-    let total_recipes = await getAllRecipes();
-    
-    try {
-        if (id){
-        const getrecipeId = total_recipes.filter((element)=> element.id == id)
-        console.log(getrecipeId)
-        getrecipeId.length ?
-        res.status(200).send(getrecipeId) :
-        res.status(400).send('Id not found')
-        } 
-       }
-catch (error) {
-console.log(error)
-}})  */
-//const valideId = id.includes('-');
-//[ ] GET /recipes?name="...":
-//Obtener un listado de las recetas que contengan la palabra ingresada como query parameter
-//Si no existe ninguna receta mostrar un mensaje adecuado
 module.exports = router;
 
