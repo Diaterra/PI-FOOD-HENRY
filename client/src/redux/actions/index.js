@@ -14,7 +14,6 @@ export const CLEAN_DETAIL = 'CLEAN_DETAIL';
 export const CHANGE_PAGE = 'CHANGE_PAGE';
 export const REFRESH = 'REFRESH';
 
-
 export const getRecipes = () => {
     return async function (dispatch){
         await fetch(`http://localhost:3001/recipes`)
@@ -53,8 +52,7 @@ export const getRecipe_Id = (id)=> {
     }
     catch(error){
         console.log(error)
-    }
-    }
+    }}
    
 
 
@@ -66,7 +64,7 @@ export const getDiets = ()=>{
         .then(data=>dispatch({type: GET_DIETS, payload:data}))
     }
 }
-console.log(getDiets())
+
 
 export const postRecipe = (payload)=> {
     return async function (dispatch){
@@ -75,13 +73,10 @@ export const postRecipe = (payload)=> {
         type: CREATE_RECIPE,
         json,
     }
-    
-    }
-}
+    }}
 
     
 export const filterCreated = (payload) =>{ 
-    
     return {
         type : FILTER_CREATED,
         payload,

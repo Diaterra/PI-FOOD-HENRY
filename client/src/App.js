@@ -1,8 +1,6 @@
 import './App.css';
 import { Route, Switch} from 'react-router-dom';
 import CreateRecipe from './components/CreateRecipe/CreateRecipe';
-
-
 import DetailsRecipe from './components/DetailsRecipe/DetailsRecipe';
 import Home from './components/Home/Home';
 import LandingPage from './components/LandingPage/LandingPage';
@@ -19,16 +17,7 @@ function App() {
       <Route exact path="/createRecipe" component={CreateRecipe}/>
       <Route path={"*"} component={Error}/>
       </Switch>
-      {/* <CreateRecipe></CreateRecipe>
-      <Details></Details>
-      <Filters></Filters>
      
-      <LandingPage></LandingPage>
-      <Loading></Loading>
-      <Paginations></Paginations>
-      <Recipe></Recipe>
-      <Resources></Resources>
-      <SearchBar></SearchBar> */}
 
     </div>
   

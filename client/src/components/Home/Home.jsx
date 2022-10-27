@@ -83,9 +83,9 @@ function handleSortName (event){
 } 
 
 function handleSortHealth(event){
-    console.log(event.target.value)
+    
     dispatch(orderRecipesHealthSc(event.target.value));
-    console.log(orderRecipesHealthSc(event.target.value))
+    
     //SetActualPage(1)
     order ? SetOrder(false) : SetOrder(`Ordenado ${event.target.value}`)
 }
@@ -118,38 +118,21 @@ function handleSortHealth(event){
 
         
 
-       {/*    <div>
-           <select onChange={event=>handleSortName(event)}>
-            <option value=' '>Alphabetical Order</option> 
-           <option value= 'asc'>Ascendente</option>
-           <option value= 'desc'>Descendente</option>
-           </select> 
-        </div>  */}
+      
         <div className="order">
         <div>
            <button className="button" value= 'asc' onClick={event=>handleSortName(event)}>A-z</button>
            <button className="button"  value= 'desc' onClick={event=>handleSortName(event)}>Z-a</button>
           </div>
         </div>
-       {/*  <div>
-           <select onChange={event=>handleSortHealth(event)}>
-           <option value=' '>Health Score Order</option>
-           <option value= 'asc health'>Ascendente health</option>
-           <option value= 'desc health'>Descendente health</option>
-           </select> 
-        </div>  */}
+      
         <div className="order">
            
            <button className="button" value= 'asc health' onClick={event=>handleSortHealth(event)}>Health ↑</button>
            <button className="button" value= 'desc health' onClick={event=>handleSortHealth(event)}>Health ↓</button>
           
         </div> 
-       {/*  <div>        
-           <select onChange = {event=>handleFilterCreated(event)}>
-           <option value='All'>All</option>
-           <option value= 'created'>Created</option>
-           </select> 
-        </div> */}
+      
         <div className="order">        
            <button className="button" value= 'created' onClick = {event=>handleFilterCreated(event)}>My recipes</button> 
         </div>

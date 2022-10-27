@@ -36,7 +36,7 @@ const { Recipe, Diet } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
-Recipe.belongsToMany(Diet, { through: 'RecipeDiet', foreignKey: 'recipeId', otherKey: 'dietId'}); //se va a reflejar en la tabla RecipeDiet (diana)
+Recipe.belongsToMany(Diet, { through: 'RecipeDiet', foreignKey: 'recipeId', otherKey: 'dietId'}); 
 Diet.belongsToMany(Recipe, { through: 'RecipeDiet', foreignKey: 'dietId', otherKey: 'recipeId'});
 
 

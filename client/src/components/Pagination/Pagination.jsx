@@ -12,18 +12,18 @@ const Pagination = ()=>{ //estas props vienen del estado global constante y useS
     const actualPage = useSelector((state)=>state.actualPage)
 
     const numberPages = [];
-    console.log(numberPages)
+   
     const allrecipes = recipes.length;
     for(let i= 1; i<=Math.ceil(allrecipes/recipesxPage); i++){ 
         // ver divido todas las recetas  por la catidad de recetas por paginas, entonces cuando estoy en home, renderizo y le paso por props al componente Pagination los parametros
      numberPages.push(i)}
 
 
-console.log(numberPages)    
+
     function handleChangePage (event) {
         dispatch(changePage(event.target.value))
     }    
-console.log(actualPage)
+
 
     return (
         <div>

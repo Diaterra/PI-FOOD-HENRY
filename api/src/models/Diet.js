@@ -8,9 +8,7 @@ module.exports = (sequelize)=>{
         },
         name: {
             type: DataTypes.STRING,
-           /*  validate: {
-                notEmpy: {msg: 'Diets is required'}
-            } */
+           
         }
     } , { timestamps: false })
 }

@@ -17,7 +17,7 @@ const history= useHistory()
 
 function handleChange(event) {
     setName(event.target.value);
-    console.log(event.target.value)
+  
     
   }
 
@@ -25,7 +25,7 @@ function handleSubmit(event) {
     event.preventDefault();
     dispatch(getRecipe_Name(name))
     history.push('/home')   
-    console.log(dispatch(getRecipe_Name(name)))
+    
 
     setName('');
   }
@@ -43,11 +43,7 @@ function handleSubmit(event) {
             onClick={event=>handleSubmit(event)}
             className='label'
           >Find Recipe</button>
-         {/*  <div>
-           <Link to ='/createRecipe'>
-           <button>Create Recipe</button>
-        </Link>   
-       </div> */}
+        
         </div>
         
     )

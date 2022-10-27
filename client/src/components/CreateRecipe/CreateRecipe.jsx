@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { getDiets, postRecipe,getRecipes } from "../../redux/actions";
+import { getDiets, postRecipe } from "../../redux/actions";
 import NavBar from "../NavBar/NavBar";
 import { useHistory } from "react-router-dom";
 import './CreateRecipe.css';
@@ -83,13 +83,12 @@ const CreateRecipe = () => {
 
    function handleSubmit(event){
         event.preventDefault()
-        SetErrors(validate(input));
         const getError = validate(input);
         if(Object.values(getError).length !== 0){
         alert('This action does not complete, check the fields')
         } else { dispatch(postRecipe(input))     
         alert('Recipe created')
-        setInput({     //esto es para que que se vacie el form
+        setInput({     
         name: '',
         dish_summary: '',
         health_score: 0,
@@ -166,7 +165,7 @@ const CreateRecipe = () => {
              </div>
 
           
-            <button className="button" type='submit' disable={Object.keys(errors).length}>Create Recipe</button>
+            <button className="button" type='submit' disabled={Object.keys(errors).length}>Create Recipe</button>
             <div>
             </div>       
             

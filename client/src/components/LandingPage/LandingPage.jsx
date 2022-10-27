@@ -11,13 +11,13 @@ const LandingPage = ()=>{
     return(
         
       
-            <div className="background">
+        <div className="background">
             
          <h1 className="title">LET'S GO TO</h1>
          <Link to ='/home'>
          <div className=".button">
-            <button className="buttonGo">COOK</button></div>
-            
+            <button className="buttonGo">COOK</button>
+        </div>  
          </Link>   
         
         </div>
