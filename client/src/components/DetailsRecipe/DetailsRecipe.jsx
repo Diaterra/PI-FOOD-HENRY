@@ -47,18 +47,23 @@ return (
             <div className="div_details_first">
             <ul className="div_type_diets">{recipe_id.diets?.map(e => <li key={e.name}>{e.name}</li>)}</ul>
             <div className="div_img">
+
             {recipe_id.image ? <img src={recipe_id.image} className='img-details'  alt='icon'/>:<img src='https://cdn6.aptoide.com/imgs/e/0/8/e08b4393fd23e8a9cdf0e71b96338d18_icon.png' key={id} alt=''/>}
+           
             </div>
+           
             <p className="instruccions" key={id}>INSTRUCTIONS: {recipe_id.instructions ? recipe_id.instructions : 'This recipe does not the instructions'}</p>  
             </div>
 
             <div>
-            
             <p className="div_summary">DISH SUMMARY: {recipe_id.dish_summary}</p>  
             </div>        
             <h2 key={id} className="name_diets_id">{recipe_id.dishTypes?.map(element=>element).join('   /   ')}</h2> 
-            </div>
-      
+
+
+     
+</div>
+
     )
      
 }

@@ -12,7 +12,7 @@ export const ORDER_RECIPES_NAME = 'ORDER_RECIPES_NAME';
 export const ORDER_RECIPES_HEALTH_SC = 'ORDER_RECIPES_HEALTH_SC';
 export const CLEAN_DETAIL = 'CLEAN_DETAIL';
 export const CHANGE_PAGE = 'CHANGE_PAGE';
-export const REFRESH = 'REFRESH';
+
 
 export const getRecipes = () => {
     return async function (dispatch){
@@ -110,10 +110,11 @@ export const changePage = (payload)=>{
     }
 }
 
-
 export const cleanDetail = ()=>{
     return{
         type: CLEAN_DETAIL,
     }
 }
+
+
 

@@ -13,87 +13,46 @@ import "./Home.css";
 const Home = () =>{
 
 const dispatch = useDispatch();
-const recipes = useSelector((state)=>state.recipes); //el arreglo del estado que lo traer del reducer
+const recipes = useSelector((state)=>state.recipes); 
 const diets = useSelector((state)=>state.diets);
 const [order, SetOrder]= useState(' ')
 
 
 const recipesxPage = useSelector ((state)=>state.recipesxPage)
 const actualPage = useSelector((state)=>state.actualPage)
+const positionOfLastRecipe = actualPage * recipesxPage; 
+const positionOfFirstRecipe = positionOfLastRecipe - recipesxPage; 
+const actualRecipes = recipes.slice(positionOfFirstRecipe,positionOfLastRecipe) 
 
-
-//const [actualPage, SetActualPage] = useState(1); //  pagina actual, y el estado de la pagina actual - actuaPage, useSelector cambiar
-//const [recipesxPage, SetRecipesxPage] = useState(9); // cantidad de recetas por pagina
-
-const positionOfLastRecipe = actualPage * recipesxPage; // el indice de la ultima receta
-const positionOfFirstRecipe = positionOfLastRecipe - recipesxPage; // el indice de la primera receta
-const actualRecipes = recipes.slice(positionOfFirstRecipe,positionOfLastRecipe) // esta constante guarda todos los personajes que tengo por pagina, el slice toma un porcion del array segun pase por parametro, y paso el indice de la primera receta, hasta el indice de la ultima receta), el segundo parametro no lo toma el slice pero igualemente va del 0 al 9, por ende toma las 9 recetas
-
-
-
-
-// 1 -----9-----0  [0,9]
-// 2 -----18-----9 [9,18]
-// 3 -----27 -----9 [18,27]
-// 4 ----36 ----27 [27,36]
-
-
-/* const pagination = (numberPage)=>    
-{SetActualPage(numberPage)}
-
- */
-    //declaro una constante, que se le pasa el numero de la pagina y setear la pagina en ese numero de pagina, sirve para el renderizado
 
 useEffect(()=>{
     dispatch(getRecipes());dispatch(getDiets())
 },[dispatch]) 
 
 
-
 function recipesRefresh (){
-    dispatch(getRecipes());dispatch(getDiets())
+      dispatch(getRecipes());dispatch(getDiets())
 }
 
 function handleFilterCreated(event){
-    dispatch((filterCreated(event.target.value)))
-    console.log(filterCreated(event.target.value))
-   
+    dispatch((filterCreated(event.target.value)))  
 }
-
-//dispatch(filterCreated(event.target.value))
-//    console.log(filterCreated(event.target.value))
-
 
 
 function handleFilterDiets(event){
-    dispatch(filterTypeOfDiet(event.target.value))
+    dispatch(filterTypeOfDiet(event.target.value))   
 }
 
-
 function handleSortName (event){
-    event.preventDefault(event);
     dispatch(orderRecipesName(event.target.value));
-   // SetActualPage(1);
     order ?  SetOrder(false) : SetOrder(`Ordenado ${event.target.value}`)
-    //SetOrder(`Ordenado ${event.target.value}`) 
-    // order inicia con el estado en string vacio, mientras que 
-    // se encuentre en ese no cambia el estado en SetOrder, si en cambio 
-    // el value que toma el order es asc, dispacha la accion y retorna un valor que va a setear el setOrder al entrar
-    //  //seteame el ordenamiento en la pagina 1
 } 
 
 function handleSortHealth(event){
-    
     dispatch(orderRecipesHealthSc(event.target.value));
-    
-    //SetActualPage(1)
     order ? SetOrder(false) : SetOrder(`Ordenado ${event.target.value}`)
 }
-      
-    
-    
-        
-    
+           
     return (
         <div className="background-home">
         
@@ -101,23 +60,18 @@ function handleSortHealth(event){
         
         {recipes.length === 0 && <Loading/>} 
 
-        
 
         <div >
             <h1 className="title-recipe">The only food App you'll ever need to cook.</h1>
            
 
             <div>
-            
             <p className="title-fil-ord">Order and Filter the recipes</p>
-            
             </div>
            
 
         <div className="filter-order">
-
-        
-
+       
       
         <div className="order">
         <div>
@@ -126,11 +80,9 @@ function handleSortHealth(event){
           </div>
         </div>
       
-        <div className="order">
-           
+        <div className="order"> 
            <button className="button" value= 'asc health' onClick={event=>handleSortHealth(event)}>Health ↑</button>
-           <button className="button" value= 'desc health' onClick={event=>handleSortHealth(event)}>Health ↓</button>
-          
+           <button className="button" value= 'desc health' onClick={event=>handleSortHealth(event)}>Health ↓</button> 
         </div> 
       
         <div className="order">        
@@ -140,9 +92,9 @@ function handleSortHealth(event){
         <div className="content-select">
             
         <select defaultValue='Diets'onChange={event=>handleFilterDiets(event)}>
-           <option disabled='Diets'>Diets</option>
+           <option disabled='Diets' name='Diets' value='Diets'>Diets</option>
            
-           {diets?.map((element)=> <option key={element} value={element}>{element}</option>)}
+           {diets?.map((element)=> <option  name={element} key={element} value={element}>{element}</option>)}
          </select>  
           
          </div>  
@@ -158,7 +110,7 @@ function handleSortHealth(event){
          <div className="recipes_container">
 
             {actualRecipes?.map((element)=>{ return (  
-                //antes del paginado aca mapeabamos todas las recetas, pero ahora como quiero que me las muestre por paginas debo tomar el arreglo que le hice slice, antes el codigo era asi  {recipes?.map((element)=>{ return ( ......
+              
             
                  
              <Link to={'/recipes/' + element.id} className="link" key={element.id}>

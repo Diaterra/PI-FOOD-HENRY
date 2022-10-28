@@ -115,7 +115,8 @@ const CreateRecipe = () => {
         <form className="form" onSubmit={event=>handleSubmit(event)}>
 
             <label className="form_label">Name*:</label>
-            <input type= 'text' 
+            <input 
+            type= 'text' 
             name= 'name'
             value={input.name} 
             onChange={event=>handleChangeInput(event)}
@@ -125,28 +126,30 @@ const CreateRecipe = () => {
             {errors.name && <p className='form_error'>{errors.name}</p>}             
             
             <label className="form_label">Dis_summary*:</label>
-            <textarea  type='text'
+            <textarea  
+            type='text'
             name= 'dish_summary' 
             value={input.dish_summary} 
             onChange={event=>handleChangeInput(event)}
             placeholder='Dish_summary'
             className='form_input'
-            required 
-            /> 
+            required/>
             {errors.dish_summary && <p className='form_error'>{errors.dish_summary}</p>} 
             
             <label className="form_label">Health_score:</label>
-            <input type="number" 
+            <input required
+            type="number" 
             name= 'health_score' 
             value={input.health_score} 
             onChange={event=>handleChangeInput(event)}
-            className= 'form_input'
-            />
+            className= 'form_input'/>
             {errors.health_score && <p className='form_error'>{errors.health_score}</p>}    
             
            
             <label className="form_label">Instructions</label>
-            <textarea className="div_textarea" type='text' 
+            <textarea required
+            className="div_textarea" 
+            type='text' 
             name='instructions' 
             value={input.instructions} 
             placeholder='Instructions'
@@ -154,14 +157,13 @@ const CreateRecipe = () => {
                 
             
              <label className="form_label">Diets</label>
-             <div required>
-             {diets?.map((element)=> <div key={element}>
+             <div  required>
+             {diets?.map((element)=> 
+             <div key={element}>
              <input  type='checkbox' name= 'diets' value={element} onChange={event=>handleSelectDiets(event)}/>
              <label>{element}</label>
              </div>)}
-             {errors.diets && <p className='form_error'>{errors.diets}</p>}
-             
-           
+             {errors.diets && <p className='form_error'>{errors.diets}</p>}         
              </div>
 
           

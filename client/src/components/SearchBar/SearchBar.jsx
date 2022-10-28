@@ -16,19 +16,17 @@ const history= useHistory()
 
 
 function handleChange(event) {
-    setName(event.target.value);
-  
-    
+    setName(event.target.value);   
   }
 
 function handleSubmit(event) {
     event.preventDefault();
     dispatch(getRecipe_Name(name))
     history.push('/home')   
-    
-
     setName('');
   }
+
+
     return (
         <div className="form-container">
          <input
@@ -38,6 +36,7 @@ function handleSubmit(event) {
                 className='input_search'
                 onChange={(event) => handleChange(event)}
           ></input>
+          
           <button
             type='submit'
             onClick={event=>handleSubmit(event)}
