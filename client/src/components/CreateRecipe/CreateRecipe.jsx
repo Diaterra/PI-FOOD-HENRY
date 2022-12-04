@@ -86,7 +86,8 @@ const CreateRecipe = () => {
         const getError = validate(input);
         if(Object.values(getError).length !== 0){
         alert('This action does not complete, check the fields')
-        } else { dispatch(postRecipe(input))     
+        } else { dispatch(postRecipe(input))
+           
         alert('Recipe created')
         setInput({     
         name: '',

@@ -8,10 +8,13 @@ const recipes_api = require('../utils/recipes_api');
 const getAlldiets = async function (){
   
   try {
-  //const takediets =  recipes_api.results?.map((element)=>element.diets);  
-  const allRecipes = await axios.get(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=${API_KEY2}&addRecipeInformation=true&number=100`);
-  const takediets = allRecipes.data.results?.map((element)=>element.diets); 
-  
+ //const takediets =  recipes_api.results?.map((element)=>element.diets);  
+  //const allRecipes = await axios.get(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=${API_KEY}&addRecipeInformation=true&number=100`);
+ 
+  const allRecipes = await axios.get(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=${API_KEY}&addRecipeInformation=true&number=100`);
+console.log('array recetas', allRecipes)
+const takediets = allRecipes.data.results?.map((element)=>element.diets); 
+
   const diets2=[]
   takediets.forEach((element)=>{
     for (let i= 0; i < element.length; i++) {
